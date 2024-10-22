@@ -8,7 +8,14 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "-------- schema management--------------------------------------------------------": "-",
+    "format": "prettier --write .",
+    "prisma:db-push": "npx prisma db push",
+    "prisma:format": "npx prisma format",
+    "prisma:generate": "npx prisma generate",
+    "prisma:studio": "npx prisma studio",
+    "prisma:validate": "npx prisma validate"
   },
   "dependencies": {
     "@astrojs/mdx": "^3.0.1",
@@ -19,8 +26,9 @@
     "@iconify-json/bx": "^1.1.10",
     "@iconify-json/simple-icons": "^1.1.102",
     "@iconify-json/uil": "^1.1.8",
+    "@prisma/client": "^5.21.1",
     "@tailwindcss/typography": "^0.5.13",
-    "astro": "^4.8.7",
+    "astro": "^4.1.1",
     "astro-icon": "^1.1.0",
     "astro-navbar": "^2.3.2",
     "astro-seo": "^0.8.3",
