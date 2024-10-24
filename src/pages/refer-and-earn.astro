@@ -1,0 +1,102 @@
+---
+// Import necessary components and assets
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Refer & Earn">
+  <Container>
+    <!-- Header Section -->
+    <section class="text-center my-10">
+      <h1 class="text-5xl font-bold text-gray-800">Everybody Wins Here!</h1>
+      <p class="mt-4 text-lg text-slate-600">
+        Just like we help you realize the vision for your dream home, you too can help us grow 
+        and change the way people live. The Ambassador program lets you leverage your network 
+        and earn rewards in the process.
+      </p>
+      <h2 class="mt-6 text-2xl font-semibold text-indigo-600">Loved us? Now Refer us!</h2>
+    </section>
+
+    <section class="mx-auto max-w-4xl mt-10">
+      <form action="/api/add" method="POST" id="referForm" class="needs-validation" novalidate>
+        <!-- Flex container for parallel sections -->
+        <div class="flex flex-wrap justify-between gap-8">
+
+          <!-- Your Details Section -->
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-3">Your Details</h3>
+            <div class="mb-5">
+              <input id="yourName" type="text" placeholder="Your Full Name" required class="w-full px-4 py-3 border-2 rounded-md outline-none" name="yourName" />
+            </div>
+            <div class="mb-5">
+              <input id="email" type="email" placeholder="you@example.com" required class="w-full px-4 py-3 border-2 rounded-md outline-none" name="emailAddress" />
+            </div>
+            <div class="mb-5">
+              <input id="phone" type="tel" placeholder="Enter your number" required class="w-full px-4 py-3 border-2 rounded-md outline-none" name="phone" />
+            </div>
+          </div>
+
+          <!-- Refer Friend Section -->
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-3">Friend Details</h3>
+            <div class="mb-5">
+              <input id="friendName" type="text" placeholder="Friend's Full Name" required class="w-full px-4 py-3 border-2 rounded-md outline-none" name="friendName" />
+            </div>
+            <div class="mb-5">
+              <input id="friendEmail" type="email" placeholder="friend@example.com" required class="w-full px-4 py-3 border-2 rounded-md outline-none" name="friendEmail" />
+            </div>
+            <div class="mb-5">
+              <input id="friendPhone" type="tel" placeholder="Enter your friend's number" required class="w-full px-4 py-3 border-2 rounded-md outline-none" name="friendPhone" />
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center mt-8">
+          <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-md text-lg">
+            Submit
+          </button>
+        </div>
+
+        <!-- Result Message -->
+        <div id="result" class="mt-3 text-center"></div>
+      </form>
+    </section>
+  </Container>
+</Layout>
+
+<!-- Add custom script for form submission -->
+<script is:inline>
+  const referForm = document.getElementById('referForm');
+  const result = document.getElementById('result');
+
+  referForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(referForm);
+    console.log("formData=>", formData);
+
+    formData.append('isReferral', 'true');
+    const json = JSON.stringify(Object.fromEntries(formData));
+
+    result.innerHTML = 'Submitting...';
+
+    fetch('/api/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: json
+    })
+    .then(response => response.json())
+    .then(data => {
+      result.innerHTML = 'Thank you! Your referral has been submitted.';
+      result.classList.add('text-green-500');
+    })
+    .catch(error => {
+      result.innerHTML = 'Something went wrong!';
+      result.classList.add('text-red-500');
+    })
+    .finally(() => {
+      referForm.reset();
+    });
+  });
+</script>
