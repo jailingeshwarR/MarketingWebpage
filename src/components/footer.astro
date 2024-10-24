@@ -1,19 +1,125 @@
-<footer class="my-20">
-  <p class="text-center text-sm text-slate-500">
-    Copyright © {new Date().getFullYear()} Astroship. All rights reserved.
-  </p>
-  <!--
-    Can we ask you a favor 🙏
-    Please keep this backlink on your website if possible.
-    or Purchase a commercial license from https://web3templates.com
-  -->
-  <p class="text-center text-xs text-slate-500 mt-1">
-    Made by <a
-      href="https://web3templates.com"
-      target="_blank"
-      rel="noopener"
-      class="hover:underline">
-      Web3Templates
-    </a>
-  </p>
+---
+import Facebook from "./ui/icons/facebook";
+import Instagram from "./ui/icons/instagram";
+import LinkedIn from "./ui/icons/linkedin";
+import Logo from "./ui/icons/logo";
+import Mail from "./ui/icons/mail";
+import Phone from "./ui/icons/phone";
+import Twitter from "./ui/icons/twitter";
+---
+
+<footer class="mt-[60px] w-full bg-gray-100 py-8">
+  <div
+    class="w-full max-w-[1200px] px-6 xl:px-0 mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 gap-4">
+    {/* Start: Company Info and Logo */}
+    <div class="col-span-1 md:col-span-2">
+      <a href="/" class="">
+        <Logo />
+        {/* Your company logo */}
+      </a>
+      <p
+        class="tracking-tight text-sm lg:text-[16px] lg:leading-[24px] font-jost text-gray-600 pt-4 pb-4">
+        It is a long established fact that a reader will be distracted by
+        readable content.
+      </p>
+    </div>
+
+    {/* Pages Section */}
+    <div class="col-span-1 flex flex-col gap-2">
+      <h5
+        class="text-primary-200 font-dm text-[18px] lg:text-[20px] leading-loose">
+        Pages
+      </h5>
+      <div class="flex flex-col gap-4">
+        <a
+          href="/about"
+          class="tracking-tight text-sm lg:text-[16px] lg:leading-[24px] font-jost text-gray-600">
+          About Us
+        </a>
+        <a
+          href="/services"
+          class="tracking-tight text-sm lg:text-[16px] lg:leading-[24px] font-jost text-gray-600">
+          Services
+        </a>
+        <a
+          href="/contact"
+          class="tracking-tight text-sm lg:text-[16px] lg:leading-[24px] font-jost text-gray-600">
+          Contact Us
+        </a>
+      </div>
+    </div>
+
+    {/* Follow Us Section */}
+    <div class="col-span-1 flex flex-col gap-2">
+      <h5
+        class="text-primary-200 font-dm text-[18px] lg:text-[20px] leading-loose">
+        FOLLOW US
+      </h5>
+      <div class="flex flex-col gap-4">
+        {/* Facebook */}
+        <div class="flex items-center space-x-2">
+          <Facebook />
+          <p
+            class="tracking-tight text-sm lg:text-[16px] lg:leading-[24px] font-jost text-gray-600">
+            Facebook
+          </p>
+        </div>
+        {/* Instagram */}
+        <div class="flex items-center space-x-2">
+          <Instagram />
+          <p
+            class="tracking-tight text-sm lg:text-[16px] lg:leading-[24px] font-jost text-gray-600">
+            Instagram
+          </p>
+        </div>
+        {/* LinkedIn */}
+        <div class="flex items-center space-x-2">
+          <LinkedIn />
+          <p
+            class="tracking-tight text-sm lg:text-[16px] lg:leading-[24px] font-jost text-gray-600">
+            LinkedIn
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Contact Section */}
+    <div class="col-span-1 flex flex-col gap-2">
+      <h5
+        class="text-primary-200 font-dm text-[18px] lg:text-[20px] leading-loose">
+        CONTACT US
+      </h5>
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center space-x-2">
+          <Mail />
+          <p
+            class="tracking-tight text-sm lg:text-[16px] lg:leading-[24px] font-jost text-gray-600">
+            jailingeshwar.jr@gmail.com
+          </p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <Phone />
+          <p
+            class="tracking-tight text-sm lg:text-[16px] lg:leading-[24px] font-jost text-gray-600">
+            +91 9360498733
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Footer Bottom */}
+  <div class="text-center mt-8">
+    <p class="text-xs text-slate-500">
+      Copyright © {new Date().getFullYear()} Astroship. All rights reserved.
+    </p>
+    <p class="text-xs text-slate-500 mt-1">
+      Made by <a
+        href="https://web3templates.com"
+        target="_blank"
+        rel="noopener"
+        class="hover:underline">Web3Templates</a
+      >
+    </p>
+  </div>
 </footer>
