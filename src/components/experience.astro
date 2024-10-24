@@ -1,0 +1,55 @@
+---
+// Import the Experience component from the external file and give it a unique name
+import ExperienceComponent from './experience.tsx';
+
+// Define the local Experience section
+const experiences = [
+  {
+    num: 12,
+    text: 'Years Of Experience',
+  },
+  {
+    num: 85,
+    text: 'Successful Projects',
+  },
+  {
+    num: 15,
+    text: 'Active Projects',
+  },
+  {
+    num: 95,
+    text: 'Happy Customers',
+  },
+];
+---
+
+<!-- <section class="w-full bg-primary-300 px-12 xl:px-0 mx-auto mt-[100px] lg:mt-[200px] py-[151px]"> -->
+  <div class="w-full max-w-[1200px] mx-auto text-center mb-1 mt-24">
+    <h2 class="font-bold text-3xl lg:text-5xl text-gray-800 mb-4">Our Experience</h2>
+    <p class="text-lg text-slate-500">
+      We bring years of experience, numerous successful projects, and a passion for serving our customers.
+    </p>
+  </div>
+  <div class="flex lg:justify-center items-center overflow-x-scroll no-scrollbar space-x-8">
+    {
+      experiences.map((exp, i) => (
+        <ExperienceComponent text={exp.text} num={exp.num} i={i} client:load />
+      ))
+    }
+  </div>
+<!-- </section> -->
+
+<style>
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+  
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+  
+  </style>
