@@ -4,6 +4,9 @@
     "baseUrl": "src",
     "strictNullChecks": true,
     "types": ["astro/client"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "paths": {
       "@lib/*": ["lib/*"],
       "@utils/*": ["utils/*"],
