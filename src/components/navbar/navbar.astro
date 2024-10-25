@@ -40,13 +40,12 @@ const menuitems = [
 ---
 
 <Container>
-  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
+  <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 flex flex-col lg:flex-row justify-between items-center py-3 px-5">
     <div class="flex w-full lg:w-auto items-center justify-between lg:justify-start">
       <a href="/" class="text-lg flex items-center space-x-1">
         <span class="font-bold text-slate-800">Jayalakshmi</span>
         <span class="text-slate-500">interiors</span>
       </a>
-      <!-- Add spacing and positioning adjustments for mobile screens -->
       <div class="block lg:hidden ml-auto">
         <MenuIcon class="w-6 h-6 text-gray-800" />
       </div>
@@ -64,7 +63,6 @@ const menuitems = [
                   lastItem={index === menuitems.length - 1}
                 />
               )}
-
               {!item.children && (
                 <li>
                   <a
@@ -86,3 +84,5 @@ const menuitems = [
     </Astronav>
   </header>
 </Container>
+
+
