@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "postinstall": "prisma generate",
     "-------- schema management--------------------------------------------------------": "-",
     "format": "prettier --write .",
     "prisma:db-push": "npx prisma db push",
