@@ -1,41 +1,26 @@
 ---
 import Container from "@components/container.astro";
-import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
-  // {
-  //   title: "Services",
-  //   path: "#",
-  //   children: [
-  //     { title: "Action", path: "/" },
-  //     { title: "Another action", path: "#" },
-  //     { title: "Dropdown Submenu", path: "#" },
-  //     { title: "404 Page", path: "/404" },
-  //   ],
-  // },
-  // {
-  //   title: "Pricing",
-  //   path: "/pricing",
-  // },
   {
     title: "About",
     path: "/about",
   },
-  // {
-  //   title: "Blog",
-  //   path: "/blog",
-  // },
   {
     title: "Contact",
     path: "/contact",
   },
   {
+    title: "Library",
+    path: "/library",
+  },
+  {
     title: "Refer & Earn",
     badge: true,
     path: "/refer-and-earn",
-  },
+  }
 ];
 ---
 
