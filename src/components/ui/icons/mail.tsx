@@ -10,7 +10,6 @@ const Mail = () => {
       <g
         fill="none"
         stroke="black"
-        stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="2">
         <rect width="20" height="16" x="2" y="4" rx="2" />

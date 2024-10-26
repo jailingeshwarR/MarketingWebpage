@@ -8,6 +8,7 @@ import Form from "./ui/form.astro";
 
 <main
   class="grid grid-cols-1 lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-12 gap-8 bg-gradient-secondary text-black px-5">
+  
   <div>
     <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter text-black">
       Transform Your Space with Jayalakshmi Interiors
@@ -17,15 +18,16 @@ import Form from "./ui/form.astro";
     </p>
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
       <Link
-        href="/contact"
-        class="flex gap-1 items-center justify-center bg-orange-500 text-white px-6 py-3 rounded-md font-semibold shadow-md hover:bg-orange-600"
+        href="/library"
+        class="flex gap-1 items-center justify-center bg-black text-white px-6 py-3 rounded-md font-semibold shadow-lg hover:bg-gray-800 hover:border-2 transition-colors duration-200"
         rel="noopener">
-        <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" />
-        Schedule Your Free Consultation
+        <Icon class="w-6 h-6 text-white" name="bx:caret-right" />
+        <span>Explore Our Work</span>
       </Link>
     </div>
   </div>
-  <div class="py-6 md:order-1">
+
+  <div class="lg:ml-20 xl:ml-36 md:order-1"> <!-- Adjusts position on larger screens -->
     <Form />
   </div>
 </main>
