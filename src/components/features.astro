@@ -1,43 +1,48 @@
 ---
 // @ts-ignore
-import { Icon } from "astro-icon/components";
+import Bathtub from "./ui/icons/serviceIcons/bathtub";
+import ModularKitchen from "./ui/icons/serviceIcons/modularkitchen" // Adjust the path as needed
+import Paintroller from "./ui/icons/serviceIcons/paintroller";
+import Studytable from "./ui/icons/serviceIcons/studytable";
+import Tvunit from "./ui/icons/serviceIcons/tvunit";
+import Wardrobe from "./ui/icons/serviceIcons/wardrobe";
 
 const features = [
   {
     title: "Modular Kitchen",
     description:
       "Cluttered kitchen? Maximize space and style with modular designs tailored for seamless storage and a joyful cooking experience.",
-    icon: "bx:bxs-briefcase",
+    icon: ModularKitchen, // Use the ModularKitchen SVG component without JSX
   },
   {
     title: "Custom Wardrobes and Storage",
     description:
       "Need organization? Our custom wardrobes blend elegance with function, making decluttering easy and stylish.",
-    icon: "bx:bxs-window-alt",
+    icon: Wardrobe, // Use the same SVG component
   },
   {
     title: "Space-Saving Furniture",
     description:
       "Limited space? Our multi-functional furniture transforms small areas into stylish, practical spaces without compromise.",
-    icon: "bx:bxs-file-find",
+    icon: Tvunit, // Use the same SVG component
   },
   {
     title: "Study Table & Workspace Design",
     description:
       "Hard to focus? Our ergonomic study spaces boost productivity and comfort, tailored for your home.",
-    icon: "bx:bxs-bot",
+    icon: Studytable, // Use the same SVG component
   },
   {
     title: "Bedroom & Bath",
     description:
       "Missing a relaxing vibe? Our designs create serene, luxurious bedrooms and bathrooms for ultimate comfort.",
-    icon: "bx:bxs-data",
+    icon: Bathtub, // Use the same SVG component
   },
   {
     title: "Flooring and Ceiling Solutions",
     description:
       "Confused by choices? We select durable, stylish flooring and ceiling options to enhance every room.",
-    icon: "bx:bxs-user",
+    icon: Paintroller, // Use the same SVG component
   },
 ];
 ---
@@ -56,11 +61,11 @@ const features = [
   {
     features.map((item) => (
       <div class="flex gap-4 items-start">
-        <div class="mt-1 bg-orange-500 rounded-full  p-2 w-8 h-8 shrink-0">
-          <Icon class="text-white" name={item.icon} />
+        <div class="mt-1 bg-orange-500 rounded-full p-2 w-10 h-10 shrink-0">
+          <item.icon />
         </div>
         <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <h3 class="font-semibold text-lg">{item.title}</h3>
           <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
         </div>
       </div>
