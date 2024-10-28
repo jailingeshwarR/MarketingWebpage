@@ -9,8 +9,8 @@ import Form from "./ui/form.astro";
 <main
   class="grid grid-cols-1 lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-12 gap-8 bg-gradient-secondary text-black px-5">
   
-  <div>
-    <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter text-black">
+  <div class="items-center flex flex-col lg:items-start">
+    <h1 class="text-center lg:text-left text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter text-black">
       Transform Your Space with Jayalakshmi Interiors
     </h1>
     <p class="text-lg mt-4 text-slate-100 max-w-xl">
@@ -27,7 +27,7 @@ import Form from "./ui/form.astro";
     </div>
   </div>
 
-  <div class="lg:ml-20 xl:ml-36 md:order-1"> <!-- Adjusts position on larger screens -->
+  <div class="w-full max-w-lg md:order-1"> <!-- Adjusts position on larger screens -->
     <Form />
   </div>
 </main>
