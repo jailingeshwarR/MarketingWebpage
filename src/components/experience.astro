@@ -4,22 +4,13 @@ import ExperienceComponent from './experience.tsx';
 
 // Define the local Experience section
 const experiences = [
-  {
-    num: 12,
-    text: 'Years Of Experience',
-  },
-  {
-    num: 85,
-    text: 'Successful Projects',
-  },
-  {
-    num: 15,
-    text: 'Active Projects',
-  },
-  {
-    num: 95,
-    text: 'Happy Customers',
-  },
+  { num: 26, text: 'Years of Experience' },
+  // { num: 200, text: 'Completed Projects' },
+  // { num: 150, text: 'Happy Clients' },
+  { num: 50, text: 'Gated Communities' },
+  { num: 10, text: 'Luxury Villas' },
+  { num: 50, text: 'Standard Villas' },
+  { num: 100, text: 'Budget Homes' },
 ];
 ---
 
@@ -30,7 +21,7 @@ const experiences = [
       With years of experience and hundreds of delighted clients, we bring passion and expertise to every project.
     </p>
   </div>
-  <div class="flex lg:justify-center items-center overflow-x-scroll no-scrollbar space-x-8">
+  <div class="flex lg:justify-center items-center overflow-x-scroll no-scrollbar space-x-2">
     {
       experiences.map((exp, i) => (
         <div data-aos="fade-up">
