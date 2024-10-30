@@ -5,6 +5,10 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
   {
+    title: "Library",
+    path: "/library",
+  },
+  {
     title: "About",
     path: "/about",
   },
@@ -13,20 +17,18 @@ const menuitems = [
     path: "/contact",
   },
   {
-    title: "Library",
-    path: "/library",
-  },
-  {
     title: "Refer & Earn",
     badge: true,
     path: "/refer-and-earn",
-  }
+  },
 ];
 ---
 
 <Container>
-  <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 flex flex-col lg:flex-row justify-between items-center py-3 px-5">
-    <div class="flex w-full lg:w-auto items-center justify-between lg:justify-start">
+  <header
+    class="fixed top-0 left-0 w-full bg-white shadow-md z-50 flex flex-col lg:flex-row justify-between items-center py-3 px-5">
+    <div
+      class="flex w-full lg:w-auto items-center justify-between lg:justify-start">
       <a href="/" class="text-lg flex items-center space-x-1">
         <span class="font-bold text-slate-800">Jayalakshmi</span>
         <span class="text-slate-500">interiors</span>
@@ -37,37 +39,38 @@ const menuitems = [
     </div>
 
     <Astronav>
-      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0 justify-end">
+      <MenuItems
+        class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0 justify-end">
         <ul class="flex flex-col lg:flex-row lg:gap-3">
-          {menuitems.map((item: any, index) => (
-            <Fragment key={index}>
-              {item?.children && (
-                <Dropdown
-                  title={item.title}
-                  children={item.children}
-                  lastItem={index === menuitems.length - 1}
-                />
-              )}
-              {!item.children && (
-                <li>
-                  <a
-                    href={item.path}
-                    class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
-                    <span>{item.title}</span>
-                    {item.badge && (
-                      <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-orange-600 rounded-full">
-                        New
-                      </span>
-                    )}
-                  </a>
-                </li>
-              )}
-            </Fragment>
-          ))}
+          {
+            menuitems.map((item: any, index) => (
+              <Fragment key={index}>
+                {item?.children && (
+                  <Dropdown
+                    title={item.title}
+                    children={item.children}
+                    lastItem={index === menuitems.length - 1}
+                  />
+                )}
+                {!item.children && (
+                  <li>
+                    <a
+                      href={item.path}
+                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
+                      <span>{item.title}</span>
+                      {item.badge && (
+                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-orange-600 rounded-full">
+                          New
+                        </span>
+                      )}
+                    </a>
+                  </li>
+                )}
+              </Fragment>
+            ))
+          }
         </ul>
       </MenuItems>
     </Astronav>
   </header>
 </Container>
-
-
