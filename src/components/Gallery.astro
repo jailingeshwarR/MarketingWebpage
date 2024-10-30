@@ -1,16 +1,153 @@
 ---
 const imageUrls = [
-  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/20190831_164929.jpg",
-  // Add additional S3 URLs here
-]
+"https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20191112_101919.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20191002_095417.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20191002_095120.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20191002_095108.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20190831_164929.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210621_160640.png",
+
+  // "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210621_160559.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210621_160551.png",
+  // "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210621_160545.png",
+  // "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210617_125235.png",
+  // "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210617_125222.png",
+  // "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210617_125156.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210521_101430.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210521_101426.png",
+
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210515_121958.png",
+  
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_182640.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_182558.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_182521.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_182413.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_182403.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_182248.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_182222.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_112837.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_112556.png",
+  // "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210513_111542.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210430_190242.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210424_154909.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210423_110259.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210423_110250.png",
+
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210515_143232.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210515_122102.png",
+
+
+
+"https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210220_162806.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210220_162753.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210217_122708.png",
+  
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210130_164637.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210130_164625.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210123_181818.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210122_181827.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210122_181815.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210122_181757.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210122_175717.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210119_112456.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210102_152334.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20191112_102042.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20191112_102033.jpg",
+
+
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20191001_153608.jpg",
+  // "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20191001_102128.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20190924_113943.jpg",
+  
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20190730_165546.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20190730_165430.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20190730_165344.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20190730_155512.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20190724_181155.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20190724_181124.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20190724_181102.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20190711_115158.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20211229_165748.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20211229_125722.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20211229_125654.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20211229_125643.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20211229_125627.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20211229_125612.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20211229_125606.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20211229_125548.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20211229_125520.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20211229_125503.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20211229_125327.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210628_182150.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210628_182102.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210628_173331.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210628_173326.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210625_162748.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210625_162720.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210625_162706.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210625_152932.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210624_162847.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210624_101851.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210624_101851.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210624_101820.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210623_164524.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210623_164512.png",
+  // "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210622_231132.jpg", logo
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210621_160921.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210621_160836.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210621_160820.png",
+  
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_182854.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_182832.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210422_182724.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210421_171547.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210421_171529.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210421_171519.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210421_171413.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210421_171404.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210421_171354.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210421_171343.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210421_171321.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210421_171250.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210421_171235.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210413_171353.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210410_105957.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210410_105949.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210410_105913.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210410_105851.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210410_105824.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210410_105814.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210410_105755.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210410_105201.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210410_105152.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210410_105125.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210409_175010.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210409_174953.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210408_205350.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210408_184432.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210407_192031.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210407_121535.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210202_175132.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210313_164825.jpg",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210311_154040.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210311_104051.png",
+  "https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/SmallImages/20210306_102827.png"
+];
 ---
 
 <div id="main">
-  {imageUrls.map((url) => (
-    <article class="thumb">
-      <a class="image" href={url}>
-        <img src={url} height="750" alt="Jayalakshmi interiors"  loading="lazy" />
-      </a>
-    </article>
-  ))}
+  {
+    imageUrls.map((url) => (
+      <article class="thumb">
+        <a class="image" href={url}>
+          <img
+            src={url}
+            height="750"
+            alt="Jayalakshmi interiors"
+            loading="lazy"
+          />
+        </a>
+      </article>
+    ))
+  }
 </div>
