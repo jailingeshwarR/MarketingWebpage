@@ -1,17 +1,11 @@
 ---
 import Layout from "@components/layout.astro";
-import { getAlbumImages } from '@utils/albums'
+import { getAlbumImages } from "@utils/albums";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-console.log();
-
 export async function getStaticPaths() {
-  console.log("Inhere");
-  
   const albums = await getCollection("albums");
-  console.log("ALBUMS=>",albums);
-  
 
   const paths = Object.values(albums).map((album) => {
     return {
@@ -26,7 +20,7 @@ export async function getStaticPaths() {
 
   return paths;
 }
-
+export const prerender = true;
 const { album } = Astro.props;
 const images = await getAlbumImages(album.id);
 ---
