@@ -1,0 +1,30 @@
+---
+import TestimonialSlider from "@layouts/function-components/TestimonialSlider";
+
+// import TestimonialSlider from "@/layouts/function-components/TestimonialSlider";
+const { testimonial } = Astro.props;
+---
+<!-- <div class="w-full flex flex-col bg-primary-300 rounded-[48px] px-6 py-[88px]"> -->
+  <h2 class="font-bold text-center text-3xl lg:text-4xl text-gray-800 tracking-wide w-full lg:max-w-[50%] pb-9 mx-auto">
+    What People Think About Us
+  </h2>
+<section class="reviews">
+  <div class="container">
+    <div class="row justify-between">
+      <div class="lg:col-6">
+        <h2>{testimonial.title}</h2>
+      </div>
+      <div class="lg:col-4">
+        <p>
+          {testimonial.description}
+        </p>
+      </div>
+    </div>
+    <div class="row mt-10">
+      <div class="col-12">
+        <TestimonialSlider list={testimonial.testimonial_list} client:load />
+      </div>
+    </div>
+  </div>
+</section>
+</div>

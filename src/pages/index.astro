@@ -5,7 +5,12 @@ import Experience from "@components/experience.astro";
 import Features from "@components/features.astro";
 import Hero from "@components/hero.astro";
 import Review from "@components/review.astro";
+import Testimonial from "@components/Testimonial.astro";
 import Layout from "@layouts/Layout.astro";
+import { getEntryBySlug } from "astro:content";
+
+const homepage = await getEntryBySlug("homepage", "index");
+const {testimonial } = homepage.data;
 ---
 
 <Layout title="">
@@ -16,7 +21,8 @@ import Layout from "@layouts/Layout.astro";
   </Container>
     <Experience />
     <Container>
-    <Review/>
+    <!-- <Review/> -->
+    <Testimonial testimonial={testimonial} />
     <Cta />
   </Container>
 </Layout>
