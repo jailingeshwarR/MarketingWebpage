@@ -1,5 +1,8 @@
 ---
-import Layout from "@components/layout.astro";
+// import Layout from "@components/layout.astro";
+
+import GalleryLayout from "@components/galleryLayout.astro";
+import Layout from "@layouts/Layout.astro";
 import { getAlbumImages } from "@utils/albums";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
@@ -24,8 +27,8 @@ export const prerender = true;
 const { album } = Astro.props;
 const images = await getAlbumImages(album.id);
 ---
-
-<Layout title={album.data.title}>
+<Layout title="Gallery">
+<GalleryLayout title={album.data.title}>
   <div class="text-center">
     <h1 class="text-5xl font-bold">
       {album.data.title}
@@ -56,4 +59,5 @@ const images = await getAlbumImages(album.id);
       <a href="/gallery/" class="hover:underline">View other albums</a>
     </p>
   </div>
+</GalleryLayout>
 </Layout>
