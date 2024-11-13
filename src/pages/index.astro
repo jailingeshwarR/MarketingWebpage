@@ -5,6 +5,7 @@ import Cta from "@components/cta.astro";
 import Experience from "@components/experience.astro";
 import Features from "@components/features.astro";
 import Hero from "@components/hero.astro";
+import MarqueeClients from "@components/marqueeClients.astro";
 import Review from "@components/review.astro";
 import Testimonial from "@components/Testimonial.astro";
 import Layout from "@layouts/Layout.astro";
@@ -19,11 +20,10 @@ const {testimonial,counter } = homepage.data;
   <Container>
     <!-- <Logos /> -->
     <Features />
-  </Container>
-    <Experience />
-    <Container>
     <!-- <Review/> -->
     <CounterComponent counter={counter} />
+    <!-- <Experience /> -->
+    <MarqueeClients/>
     <Testimonial testimonial={testimonial} />
     <Cta />
   </Container>
