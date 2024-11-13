@@ -12,7 +12,9 @@ const TestimonialSlider = ({ list }) => {
   const paginationRef = useRef(null);
 
   return (
-    <div className="reviews-carousel relative py-12 px-4 lg:px-8 bg-gray-50 rounded-lg shadow-lg">
+    <div className="reviews-carousel relative py-12 px-4 lg:px-8 bg-gray-50">
+      {/* Removed rounded edges and shadow from outer slider container */}
+
       <Swiper
         pagination={{
           type: "bullets",
@@ -31,7 +33,9 @@ const TestimonialSlider = ({ list }) => {
       >
         {list.map((item, i) => (
           <SwiperSlide key={`feature-${i}`}>
-            <div className="review p-6 bg-white rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+            <div className="review p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+              {/* Adjusted padding and individual testimonial border radius (rounded-lg) */}
+              
               <div className="review-author-avatar mx-auto mb-4 w-20 h-20 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center">
                 <img src={item.avatar} alt={item.author} className="w-18 h-18 rounded-full border-4 border-white object-cover" />
               </div>

@@ -1,13 +1,14 @@
 ---
 import TestimonialSlider from "@layouts/function-components/TestimonialSlider";
 
-// import TestimonialSlider from "@/layouts/function-components/TestimonialSlider";
 const { testimonial } = Astro.props;
 ---
-<!-- <div class="w-full flex flex-col bg-primary-300 rounded-[48px] px-6 py-[88px]"> -->
-  <h2 class="font-bold text-center text-3xl lg:text-4xl text-gray-800 tracking-wide w-full lg:max-w-[50%] pb-9 mx-auto">
-    What People Think About Us
-  </h2>
+
+<h2 class="font-bold text-center text-3xl lg:text-4xl text-gray-800 tracking-wide w-full lg:max-w-[50%] pt-4 pb-2 mx-auto">
+  <!-- Reduced padding-bottom (pb-6) to bring testimonials closer -->
+  What People Think About Us
+</h2>
+
 <section class="reviews">
   <div class="container">
     <div class="row justify-between">
@@ -20,11 +21,12 @@ const { testimonial } = Astro.props;
         </p>
       </div>
     </div>
-    <div class="row mt-10">
+    <div class="row mt-0 mb-2">
+      <!-- Reduced top margin (mt-8) to bring slider closer to text above -->
       <div class="col-12">
+        <!-- Passes testimonial list to the slider without rounded edges or shadow -->
         <TestimonialSlider list={testimonial.testimonial_list} client:load />
       </div>
     </div>
   </div>
 </section>
-</div>
