@@ -1,5 +1,6 @@
 ---
 import Container from "@components/container.astro";
+import CounterComponent from "@components/CounterComponent.astro";
 import Cta from "@components/cta.astro";
 import Experience from "@components/experience.astro";
 import Features from "@components/features.astro";
@@ -10,7 +11,7 @@ import Layout from "@layouts/Layout.astro";
 import { getEntryBySlug } from "astro:content";
 
 const homepage = await getEntryBySlug("homepage", "index");
-const {testimonial } = homepage.data;
+const {testimonial,counter } = homepage.data;
 ---
 
 <Layout title="">
@@ -22,6 +23,7 @@ const {testimonial } = homepage.data;
     <Experience />
     <Container>
     <!-- <Review/> -->
+    <CounterComponent counter={counter} />
     <Testimonial testimonial={testimonial} />
     <Cta />
   </Container>
