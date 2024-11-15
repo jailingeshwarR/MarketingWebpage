@@ -32,11 +32,11 @@ counter:
 #testimonial
 testimonial:
   testimonial_list:
-    - author: David Cameron
+    - author: Prakash
       avatar: "/images/users/user-5.png"
-      organization: meta limited
-      rating: 4
-      content: Our platform helps build secure onboarding authentica experiences & engage your users. We build .
+      organization: Coimbatore
+      rating: 5
+      content: The team exceeded my expectations with their outstanding service and attention to detail. I'm completely satisfied and would highly recommend their work!
     - author: David Cameron
       avatar: "/images/users/user-6.png"
       organization: meta limited
