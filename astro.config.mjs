@@ -18,7 +18,7 @@ export default defineConfig({
   vite: {
     build: {
       rollupOptions: {
-        external: ["@components/GalleryLayout.astro", "@layouts/Layout.astro"],
+        external: ["@components/GalleryLayout.astro"],
       },
     },
   },
