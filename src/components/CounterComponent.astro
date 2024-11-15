@@ -1,0 +1,66 @@
+---
+const { counter } = Astro.props;
+console.log("c=>", counter);
+---
+
+<div class="counter-section mt-16 p-8">
+  <h2 class="scroll-m-20 tracking-tight mb-12 text-center text-orange-600 text-4xl font-extrabold md:text-6xl lg:text-6xl bg-transparent">
+    Customers around India
+  </h2>  
+  <div class="counter-container grid grid-cols-2 gap-8 sm:flex sm:flex-wrap sm:justify-around">
+    {
+      counter.map((item: any) => (
+        <div class="counter-item text-center" style={{ color: item.color }}>
+          <h2 class="inline-block tabular-nums text-black font-bold text-3xl tracking-tighter lg:text-6xl flex items-baseline justify-center gap-1">
+            <span class="count" aria-valuenow={item.number}>0</span>
+            <span>+</span>
+          </h2>
+          <p class="counter-name text-lg font-medium">{item.name}</p>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .counter-section {
+    padding: 2rem 0;
+  }
+  .counter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".count");
+    const speed = 700;
+
+    const animateCounter = (counter) => {
+      const value = +counter.getAttribute("aria-valuenow");
+      const data = +counter.innerText;
+      const time = value / speed;
+
+      if (data < value) {
+        counter.innerText = Math.ceil(data + time);
+        setTimeout(() => animateCounter(counter), 10);
+      } else {
+        counter.innerText = value;
+      }
+    };
+
+    const startCounters = () => {
+      counters.forEach((counter) => animateCounter(counter));
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        startCounters();
+        observer.disconnect();
+      }
+    }, { threshold: 0.3 });
+
+    observer.observe(document.querySelector(".counter-section"));
+  });
+</script>
