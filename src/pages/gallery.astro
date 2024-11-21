@@ -1,7 +1,6 @@
 ---
 import GalleryLayout from '@components/GalleryLayout.astro';
 import Layout from "@layouts/Layout.astro";
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 const albums = await getCollection("albums");
@@ -13,27 +12,22 @@ const albums = await getCollection("albums");
       <h1 class="text-5xl font-bold">Photo Gallery</h1>
       <p class="text-xl my-4">Showcasing our finest designs and craftsmanship.</p>
     </div>
-    <div class="mx-auto container max-w-screen-sm grid grid-cols-2 gap-8">
+    <div class="mx-auto container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {albums.map((item) => (
-        <a href={`/gallery/${item.id}`} class="group block transition-all mb-4">
-          {/* <div class="relative aspect-square overflow-hidden rounded-lg"> */}
-            <Image
+        <a href={`/gallery/${item.id}`} class="group block transition-all mb-6">
+          <div class="relative overflow-hidden rounded-xl shadow-md">
+            <img
               src={item.data.cover}
               alt={item.data.title}
-              format="avif"
-              width={720}
-              // height={720} <!-- Ensure fixed dimensions to prevent CLS -->
-              quality="mid"
-              class:list={[
-                "rounded-lg transition-all",
-                "group-hover:shadow-lg group-hover:opacity-90",
-              ]}
+              width="720"
+              height="720"
+              class="rounded-xl transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
               loading="lazy"
             />
           </div>
-          <div class="mt-4 text-center text-neutral-800">
-            <strong class="font-normal">{item.data.title}</strong>
-            <p class="text-xs">{item.data.description}</p>
+          <div class="mt-4 text-center">
+            <h3 class="text-lg font-semibold text-neutral-800">{item.data.title}</h3>
+            <p class="text-sm text-neutral-600">{item.data.description}</p>
           </div>
         </a>
       ))}
