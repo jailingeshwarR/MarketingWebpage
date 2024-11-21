@@ -200,7 +200,7 @@ export async function getAlbumImages(albumTitle: string): Promise<string[]> {
       'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/tv-unit/IMG_20190403_172430249.jpg'
     ],
     "Premium Wardrobes": [
-      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/wardrobe/',
+      // 'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/wardrobe/',
       'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/wardrobe/20140808_125018.jpg',
       'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/wardrobe/20140808_125159.jpg',
       'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/wardrobe/20140808_125231.jpg',
