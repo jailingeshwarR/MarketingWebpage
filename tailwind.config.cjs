@@ -6,11 +6,17 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          "Bricolage Grotesque Variable",
-          "Inter Variable",
-          "Inter",
+          "Helvetica Neue", // A clean and modern professional font
+          "Roboto",         // A widely used professional sans-serif
+          "Arial",          // Classic and professional
           ...defaultTheme.fontFamily.sans,
-        ],
+        ]
+        // sans: [
+          // "Bricolage Grotesque Variable",
+          // "Inter Variable",
+          // "Inter",
+        //   ...defaultTheme.fontFamily.sans,
+        // ],
       },
     },
   },
