@@ -37,7 +37,7 @@ const albums = defineCollection({
     z.object({
       title: z.string(),
       description: z.string().optional(),
-      cover: image(),
+      cover: z.string().url(),
     }),
 });
 
