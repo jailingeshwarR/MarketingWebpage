@@ -1,74 +1,62 @@
 ---
-// @ts-ignore
-import Bathtub from "./ui/icons/serviceIcons/bathtub";
-import ModularKitchen from "./ui/icons/serviceIcons/modularkitchen" // Adjust the path as needed
-import Paintroller from "./ui/icons/serviceIcons/paintroller";
-import Studytable from "./ui/icons/serviceIcons/studytable";
-import Tvunit from "./ui/icons/serviceIcons/tvunit";
-import Wardrobe from "./ui/icons/serviceIcons/wardrobe";
+import { ServiceCard } from "./ServiceCard";
 
 const features = [
   {
     title: "Modular Kitchen",
     description:
       "Cluttered kitchen? Maximize space and style with modular designs tailored for seamless storage and a joyful cooking experience.",
-    icon: ModularKitchen, // Use the ModularKitchen SVG component without JSX
+    imageUrl:
+      "https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=1000",
   },
   {
-    title: "Custom Wardrobes and Storage",
+    title: "Custom Wardrobes",
     description:
       "Need organization? Our custom wardrobes blend elegance with function, making decluttering easy and stylish.",
-    icon: Wardrobe, // Use the same SVG component
+    imageUrl:
+      "https://images.unsplash.com/photo-1558997519-83ea9252edf8?q=80&w=1000",
   },
   {
     title: "Space-Saving Furniture",
     description:
       "Limited space? Our multi-functional furniture transforms small areas into stylish, practical spaces without compromise.",
-    icon: Tvunit, // Use the same SVG component
+    imageUrl:
+      "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1000",
   },
   {
-    title: "Study Table & Workspace Design",
+    title: "Workspace Design",
     description:
       "Hard to focus? Our ergonomic study spaces boost productivity and comfort, tailored for your home.",
-    icon: Studytable, // Use the same SVG component
+    imageUrl:
+      "https://images.unsplash.com/photo-1486946255434-2466348c2166?q=80&w=1000",
   },
   {
     title: "Bedroom & Bath",
     description:
       "Missing a relaxing vibe? Our designs create serene, luxurious bedrooms and bathrooms for ultimate comfort.",
-    icon: Bathtub, // Use the same SVG component
+    imageUrl:
+      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1000",
   },
   {
-    title: "Flooring and Ceiling Solutions",
+    title: "Premium Finishes",
     description:
       "Confused by choices? We select durable, stylish flooring and ceiling options to enhance every room.",
-    icon: Paintroller, // Use the same SVG component
+    imageUrl:
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000",
   },
 ];
+
 ---
 
-<div class="mt-16 md:mt-6">
-  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+<div class="py-16 max-w-screen-xl mx-auto px-5">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:leading-[58px] mb-6 max-w-4xl">
     Everything You Need to Design Your Dream Home
   </h2>
-  <p class="text-lg mt-4 text-slate-600">
+  <p class="text-lg text-slate-600 mb-12">
     Jayalakshmi interiors combines innovative solutions with personalized
     service to create spaces that inspire and function beautifully.
   </p>
-</div>
-
-<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
-  {
-    features.map((item) => (
-      <div class="flex gap-4 items-start">
-        <div class="mt-1 bg-orange-500 rounded-full p-2 w-10 h-10 shrink-0">
-          <item.icon />
-        </div>
-        <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>
-          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
-        </div>
-      </div>
-    ))
-  }
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {features.map((service) => <ServiceCard {...service} />)}
+  </div>
 </div>

@@ -3,29 +3,26 @@ import { SEO } from "astro-seo";
 import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
-import '@fontsource-variable/bricolage-grotesque';
-
-
+import "@fontsource-variable/bricolage-grotesque";
 
 export interface Props {
   title: string;
+  description?: string;
+  useTitleTemplate?: boolean;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const canonicalURL = import.meta.env.PUBLIC_URL;
 
-const resolvedImageWithDomain = new URL(
-  "/opengraph.jpg",
-  Astro.site
-).toString();
+const { title, description, useTitleTemplate = true } = Astro.props;
 
-const { title } = Astro.props;
-
-const makeTitle = title
-  ? title + " | " + "Astroship"
-  : "Astroship - Starter Template for Astro with Tailwind CSS";
+const makeTitle = useTitleTemplate
+  ? title + " | " + "Jayalakshmi interiors"
+  : title
+    ? title
+    : "Jayalakshmi interiors - Transforming Spaces, Elevating Lifestyles";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -36,19 +33,15 @@ const makeTitle = title
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Astroship is a starter website template for Astro built with TailwindCSS."
+      description={description ||
+        "Jayalakshmi Interiors crafts elegant, functional designs tailored to your style, blending modern aesthetics with traditional touches and expert craftsmanship."}
       canonical={canonicalURL}
-      twitter={{
-        creator: "@surjithctly",
-        site: "@web3templates",
-        card: "summary_large_image",
-      }}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
           title: `Astroship - Starter Template for Astro`,
-          image: resolvedImageWithDomain,
+          image: "/opengraph.png",
         },
         image: {
           alt: "Astroship Homepage Screenshot",
@@ -56,7 +49,7 @@ const makeTitle = title
       }}
     />
   </head>
-  <body class="pt-12">
+  <body>
     <Navbar />
     <slot />
     <Footer />

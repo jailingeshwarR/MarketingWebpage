@@ -1,7 +1,8 @@
 ---
-const { class: className } = Astro.props;
+import { cn } from "../utils/common";
+const { className } = Astro.props;
 ---
 
-<div class:list={["max-w-screen-xl mx-auto px-5", className]}>
+<div class:list={cn("max-w-screen-xl mx-auto px-5", className)}>
   <slot />
 </div>

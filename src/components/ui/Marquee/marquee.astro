@@ -1,0 +1,31 @@
+---
+import MarqueeWrapper from "./marqueeWrapper";
+
+const images = [
+  "src/assets/marquee/RMCLogo.png",
+  "src/assets/marquee/mayflower.png",
+  "src/assets/marquee/fairyLand.png",
+  "src/assets/marquee/Srivari Logo.png",
+];
+---
+
+<MarqueeWrapper
+  className="cursor-default"
+  duration="12s"
+  repeat={4}
+  pauseOnHover={false}
+  direction="left"
+  client:only>
+  {
+    images.map((src, index) => (
+      <img
+        src={src}
+        alt={`Marquee image ${index + 1}`}
+        title={`Marquee image ${index + 1}`}
+        class="ml-12 mr-12 h-16"
+        loading="lazy"
+        draggable="false"
+      />
+    ))
+  }
+</MarqueeWrapper>
