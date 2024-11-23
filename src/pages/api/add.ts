@@ -3,13 +3,30 @@ import db from "../../../prisma/db";
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const formDataObject = await request.json();
+    const rawBody = await request.text();
 
-    // Store form data in MongoDB using Prisma
+    if (!rawBody) {
+      return new Response(
+        JSON.stringify({ error: "Request body cannot be empty." }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    let formDataObject;
+    try {
+      formDataObject = JSON.parse(rawBody);
+    } catch (err) {
+      console.error("Error parsing JSON:", err);
+      return new Response(
+        JSON.stringify({ error: "Invalid JSON in request body." }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
     const formData = await db.formData.create({
       data: {
         formData: formDataObject,
-        email: formDataObject["emailAddress"],
+        email: formDataObject.emailAddress,
       },
     });
 

@@ -11,7 +11,7 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   site: import.meta.env.PUBLIC_URL,
   integrations: [tailwind(), mdx(), sitemap(), icon(),react()],
-  output: "hybrid",
+  output: "server",
   adapter: vercel({
     // imageService: true,
     webAnalytics: {
