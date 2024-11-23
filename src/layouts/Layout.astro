@@ -1,5 +1,5 @@
 ---
-import { SEO } from "astro-seo";
+import { SEO, type Props as SeoProps } from "astro-seo";
 import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
@@ -11,15 +11,31 @@ export interface Props {
   useTitleTemplate?: boolean;
 }
 
-const canonicalURL = import.meta.env.PUBLIC_URL;
-
 const { title, description, useTitleTemplate = true } = Astro.props;
 
-const makeTitle = useTitleTemplate
+const metaTitle = useTitleTemplate
   ? title + " | " + "Jayalakshmi interiors"
   : title
     ? title
     : "Jayalakshmi interiors - Transforming Spaces, Elevating Lifestyles";
+
+const defaultMeta: Partial<SeoProps> = {
+  titleTemplate: "Jayalakshmi interiors",
+  titleDefault: metaTitle,
+  description: description,
+  noindex: false,
+  nofollow: false,
+  openGraph: {
+    basic: {
+      title: metaTitle,
+      type: "website",
+      image: "/opengraph.png",
+    },
+    optional: {
+      description: description,
+    },
+  },
+};
 ---
 
 <!doctype html>
@@ -29,25 +45,7 @@ const makeTitle = useTitleTemplate
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
-    <SEO
-      title={makeTitle}
-      description={description ||
-        "Jayalakshmi Interiors crafts elegant, functional designs tailored to your style, blending modern aesthetics with traditional touches and expert craftsmanship."}
-      canonical={canonicalURL}
-      openGraph={{
-        basic: {
-          url: canonicalURL,
-          type: "website",
-          title: `Astroship - Starter Template for Astro`,
-          image: "/opengraph.png",
-        },
-        image: {
-          alt: "Astroship Homepage Screenshot",
-        },
-      }}
-    />
+    <SEO {...defaultMeta} />
   </head>
   <body>
     <Navbar />
