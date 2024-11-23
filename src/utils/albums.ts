@@ -286,6 +286,25 @@ export async function getAlbumImages(albumTitle: string): Promise<string[]> {
       'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/wardrobe/IMG_20160303_143307760.jpg',        
       'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/wardrobe/IMG_20160303_143358960.jpg',        
       'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/wardrobe/cover.jpg'
+    ],
+    "Elegant Bedrooms":[
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20190520_122811.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20190520_122854.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20190520_122905.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20190520_123346.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20190520_123352.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20190520_123820.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20190520_124134.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20220611_131556.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20220611_131603.jpg',
+      // 'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20220622_164035.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20220622_164037.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20220622_164126.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20220622_164403.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20220622_164426.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20220622_164434.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/20221014_165450.jpg',
+      'https://marketing-website-jayalakshmi-wood-corner.s3.ap-south-1.amazonaws.com/bedroom/IMG-20210205-WA0001.jpg',
     ]
     // Add more albums if needed
   };
