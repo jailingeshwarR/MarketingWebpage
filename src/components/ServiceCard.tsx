@@ -23,7 +23,6 @@ export function ServiceCard({ title, description, imageUrl, className }: Service
                     alt={title}
                     title={title}
                     draggable={false}
-                    loading="lazy"
                     className="h-full w-full object-cover bg-top opacity-80 transition-all duration-500 group-hover:scale-110"
                 />
             </div>
@@ -34,7 +33,6 @@ export function ServiceCard({ title, description, imageUrl, className }: Service
                     alt={title}
                     title={title}
                     draggable={false}
-                    loading="lazy"
                     className="h-64 w-full object-cover opacity-100 transition-all duration-500"
                 />
             </CardHeader>

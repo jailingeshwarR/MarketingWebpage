@@ -4,6 +4,7 @@ import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
+import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
   title: string;
@@ -46,6 +47,7 @@ const defaultMeta: Partial<SeoProps> = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <SEO {...defaultMeta} />
+    <ViewTransitions />
   </head>
   <body>
     <Navbar />

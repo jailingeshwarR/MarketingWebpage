@@ -1,5 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 const albums = await getCollection("albums");
@@ -21,13 +22,13 @@ const albums = await getCollection("albums");
             href={`/gallery/${item.id}`}
             class="group block transition-all mb-6">
             <div class="relative overflow-hidden rounded-xl shadow-md">
-              <img
+              <Image
                 src={item.data.cover}
                 alt={item.data.title}
                 width="720"
                 height="720"
+                loading="eager"
                 class="rounded-xl transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
-                loading="lazy"
               />
             </div>
             <div class="mt-4 text-center">

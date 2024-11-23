@@ -115,6 +115,7 @@ import Layout from "@layouts/Layout.astro";
 </Layout>
 
 <script is:inline>
+  document.addEventListener('astro:page-load', () => {
   const referForm = document.getElementById("referForm");
   const result = document.getElementById("result");
 
@@ -145,4 +146,5 @@ import Layout from "@layouts/Layout.astro";
         referForm.reset();
       });
   });
+})
 </script>

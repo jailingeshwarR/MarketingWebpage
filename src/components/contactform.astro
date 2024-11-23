@@ -75,6 +75,7 @@ import Button from "./ui/button.astro";
 </style>
 
 <script is:inline>
+  document.addEventListener('astro:page-load', () => {
   const form = document.getElementById("form");
   const result = document.getElementById("result");
 
@@ -116,4 +117,5 @@ import Button from "./ui/button.astro";
         }, 5000);
       });
   });
+})
 </script>
