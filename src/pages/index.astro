@@ -5,10 +5,6 @@ import Features from "@components/features.astro";
 import Hero from "@components/hero.astro";
 import Testimonial from "@components/Testimonial.astro";
 import Layout from "@layouts/Layout.astro";
-import { getEntryBySlug } from "astro:content";
-
-const homepage = await getEntryBySlug("homepage", "index");
-const { testimonial } = homepage.data;
 const meta = {
   title: "Jayalakshmi Interiors - Transforming Spaces, Elevating Lifestyles",
   description:
@@ -21,6 +17,6 @@ const meta = {
   <Hero />
   <Features />
   <CounterComponent />
-  <Testimonial testimonial={testimonial} />
+  <Testimonial/>
   <Cta />
 </Layout>

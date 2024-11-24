@@ -1,0 +1,17 @@
+---
+import TestimonialSlider from "@layouts/function-components/TestimonialSlider";
+
+const { testimonial } = Astro.props;
+---
+
+<div class="pt-16 pb-8 md:pt-16 md:pb-16 bg-gray-50">
+  <div class="row mt-0 mb-2 max-w-screen-xl mx-auto">
+    <h2
+      class="font-bold text-center text-3xl lg:text-4xl text-gray-800 tracking-wide w-full lg:max-w-[50%] mx-auto">
+      What People Think About Us
+    </h2>
+    <div class="col-12 pt-12 px-4 lg:px-8 bg-gray-50">
+      <TestimonialSlider list={testimonial.testimonial_list} client:load />
+    </div>
+  </div>
+</div>

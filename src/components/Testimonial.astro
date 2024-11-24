@@ -1,17 +1,230 @@
 ---
-import TestimonialSlider from "@layouts/function-components/TestimonialSlider";
-
-const { testimonial } = Astro.props;
+const testimonials = [
+  {
+    name: "Kevin Munjal",
+    role: "Chief Medical Officer",
+    company: "Care2U",
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    content: "As Care2U works to revolutionize the delivery of acute care by reconstructing all of the intricate processes that occur in the hospital to the home environment, we needed a partner that could build a configurable solution that would allow us to optimize workflows and achieve scalability."
+  },
+  {
+    name: "Sarah Johnson",
+    role: "Design Director",
+    company: "Studio Spaces",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
+    content: "The attention to detail and understanding of our vision was exceptional. They transformed our office space into a creative haven that perfectly reflects our brand identity."
+  },
+  {
+    name: "Michael Chen",
+    role: "CEO",
+    company: "TechFlow",
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
+    content: "The innovative approach to our workspace design has significantly improved team collaboration and productivity. It's not just an office anymore; it's an inspiration hub."
+  }
+];
 ---
 
-<div class="pt-16 pb-8 md:pt-16 md:pb-16 bg-gray-50">
-  <div class="row mt-0 mb-2 max-w-screen-xl mx-auto">
-    <h2
-      class="font-bold text-center text-3xl lg:text-4xl text-gray-800 tracking-wide w-full lg:max-w-[50%] mx-auto">
-      What People Think About Us
+<section class="testimonials-section py-20 bg-[#faf9f8]">
+  <div class="container mx-auto px-4">
+    <h2 class="text-center mb-16 text-4xl font-semibold">
+      <span class="text-[#2d2d2d]">Client</span>
+      <span class="text-[#9A8C7E]">Testimonials</span>
     </h2>
-    <div class="col-12 pt-12 px-4 lg:px-8 bg-gray-50">
-      <TestimonialSlider list={testimonial.testimonial_list} client:load />
+
+    <div class="testimonials-slider relative max-w-4xl mx-auto">
+      <div class="overflow-hidden">
+        <div class="slides-container">
+          {testimonials.map((testimonial, index) => (
+            <div class="testimonial-slide">
+              <div class="testimonial-card p-8 rounded-2xl relative">
+                <div class="flex flex-col items-center">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    class="w-20 h-20 rounded-full border-4 border-white shadow-lg mb-4"
+                  />
+                  <h3 class="text-xl font-semibold text-[#2d2d2d]">{testimonial.name}</h3>
+                  <p class="text-[#666]">
+                    {testimonial.role} | {testimonial.company}
+                  </p>
+                  <p class="mt-6 text-[#2d2d2d] text-center leading-relaxed">
+                    {testimonial.content}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-white rounded-full p-3 shadow-lg hover:bg-[#9A8C7E] hover:text-white transition-all duration-200 prev-button"
+        aria-label="Previous testimonial">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          class="w-6 h-6">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+
+      <button
+        class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-white rounded-full p-3 shadow-lg hover:bg-[#9A8C7E] hover:text-white transition-all duration-200 next-button"
+        aria-label="Next testimonial">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          class="w-6 h-6">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
+
+      <div class="dots-container flex justify-center gap-2 mt-8">
+        {testimonials.map((_, index) => (
+          <button
+            class={`dot w-2 h-2 rounded-full transition-all duration-200 ${
+              index === 0 ? "bg-[#9A8C7E]" : "bg-gray-300 hover:bg-[#9A8C7E]/50"
+            }`}
+            aria-label={`Go to testimonial ${index + 1}`}
+          />
+        ))}
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+<style>
+  .testimonial-card {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(154, 140, 126, 0.1);
+  }
+
+  .testimonials-slider {
+    overflow: hidden;
+  }
+
+  .slides-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .testimonial-slide {
+    flex: 0 0 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .testimonial-slide.active {
+    opacity: 1;
+  }
+
+  .dot.active {
+    background-color: #9A8C7E;
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 768px) {
+    .prev-button,
+    .next-button {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const slidesContainer = document.querySelector('.slides-container') as HTMLElement;
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+
+    let currentSlide = 0;
+    let autoPlayInterval: ReturnType<typeof setInterval>;
+    const autoPlayDelay = 5000; // 5 seconds
+
+    function updateSlides() {
+      if (slidesContainer) {
+        slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlides();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlides();
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+      }
+    }
+
+    prevButton?.addEventListener('click', () => {
+      prevSlide();
+      startAutoPlay();
+    });
+
+    nextButton?.addEventListener('click', () => {
+      nextSlide();
+      startAutoPlay();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateSlides();
+        startAutoPlay();
+      });
+    });
+
+    startAutoPlay();
+
+    const slider = document.querySelector('.testimonials-slider');
+    slider?.addEventListener('mouseenter', stopAutoPlay);
+    slider?.addEventListener('mouseleave', startAutoPlay);
+
+    updateSlides();
+  });
+</script>
