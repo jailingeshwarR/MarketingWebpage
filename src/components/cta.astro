@@ -1,6 +1,6 @@
 ---
+import SuccessPopup from './SuccessPopup.astro';
 ---
-
 <section class="cta-section">
   <div class="cta-container">
     <div class="image-container">
@@ -13,38 +13,69 @@
     <div class="form-container">
       <h2>Schedule Your Personal Consultation</h2>
       <p class="subtitle">Leave your details and we'll contact you soon to discuss your dream interior</p>
-      
-      <form class="consultation-form">
+      <form
+        action="/api/add"
+        method="POST"
+        id="form"
+        class="consultation-form"
+        novalidate
+      >
         <div class="form-group">
-          <input 
-            type="text" 
-            id="name" 
-            name="name" 
-            placeholder="Your Name"
+          <label for="name" class="block text-gray-700 font-medium">
+            Full Name <span class="text-red-500">*</span>
+          </label>
+          <input
+            id="name"
+            type="text"
+            placeholder="John Carter"
             required
+            class="w-full px-5 py-3 border-2 rounded-md outline-none focus:border-orange-500"
+            name="firstname"
           />
+          <div class="empty-feedback text-red-400 text-sm mt-1">
+            Please provide your full name.
+          </div>
         </div>
-        
         <div class="form-group">
-          <input 
-            type="tel" 
-            id="phone" 
-            name="phone" 
-            placeholder="Your Phone Number"
+          <label for="email" class="block text-gray-700 font-medium">
+            Email Address <span class="text-red-500">*</span>
+          </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="you@mail.com"
             required
+            class="w-full px-5 py-3 border-2 rounded-md outline-none focus:border-orange-500"
+            name="emailAddress"
           />
+          <div class="empty-feedback text-red-400 text-sm mt-1">
+            Please provide a valid email address.
+          </div>
         </div>
-
-        <p class="privacy-notice">
-          By submitting this form, you agree to our privacy policy
-        </p>
-
+        <div class="form-group">
+          <label for="phone" class="block text-gray-700 font-medium">
+            Contact Number <span class="text-red-500">*</span>
+          </label>
+          <input
+            id="phone"
+            type="tel"
+            placeholder="+91 9876543210"
+            required
+            class="w-full px-5 py-3 border-2 rounded-md outline-none focus:border-orange-500"
+            name="phone"
+          />
+          <div class="empty-feedback text-red-400 text-sm mt-1">
+            Please provide your contact number.
+          </div>
+        </div>
         <button type="submit" class="submit-button">
           Request Consultation
         </button>
+        <div id="result" class="mt-3 text-center"></div>
       </form>
     </div>
   </div>
+  <SuccessPopup message="Thank you! Your consultation request has been received. We'll contact you within 24 hours." />
 </section>
 
 <style>
@@ -114,6 +145,10 @@
     border-color: #9a8c7e;
   }
 
+  .empty-feedback {
+    display: none;
+  }
+
   .privacy-notice {
     font-size: 0.875rem;
     color: #666;
@@ -147,4 +182,75 @@
       font-size: 2rem;
     }
   }
+
+  .was-validated :invalid ~ .empty-feedback {
+    display: block;
+  }
 </style>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const form = document.getElementById("form");
+    const result = document.getElementById("result");
+    const successPopup = document.getElementById("successPopup");
+    const closePopup = document.getElementById("closePopup");
+
+    const showPopup = () => {
+      successPopup.classList.remove("hidden");
+      setTimeout(() => {
+        successPopup.classList.add("show");
+      }, 10);
+    };
+
+    const hidePopup = () => {
+      successPopup.classList.remove("show");
+      setTimeout(() => {
+        successPopup.classList.add("hidden");
+      }, 300);
+    };
+
+    closePopup.addEventListener("click", hidePopup);
+
+    successPopup.addEventListener("click", (e) => {
+      if (e.target === successPopup) {
+        hidePopup();
+      }
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.classList.add("was-validated");
+
+      if (!form.checkValidity()) {
+        form.querySelector(":invalid").focus();
+        return;
+      }
+
+      const formData = new FormData(form);
+      const json = JSON.stringify(Object.fromEntries(formData));
+
+      result.innerHTML = "Sending...";
+
+      fetch("/api/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: json,
+      })
+        .then((response) => response.json())
+        .then(() => {
+          showPopup();
+        })
+        .catch(() => {
+          result.innerHTML = "Something went wrong!";
+          result.classList.add("text-red-500");
+        })
+        .finally(() => {
+          form.reset();
+          form.classList.remove("was-validated");
+          result.innerHTML = "";
+        });
+    });
+  });
+</script>
