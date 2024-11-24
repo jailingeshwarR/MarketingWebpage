@@ -1,81 +1,89 @@
 ---
-import SuccessPopup from './SuccessPopup.astro';
+import SuccessPopup from "./SuccessPopup.astro";
 ---
+
 <section class="cta-section">
-  <div class="cta-container">
-    <div class="image-container">
-      <img 
-        src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&auto=format&fit=crop&q=80" 
-        alt="Modern living room interior" 
-        class="cta-image"
-      />
-    </div>
-    <div class="form-container">
-      <h2>Schedule Your Personal Consultation</h2>
-      <p class="subtitle">Leave your details and we'll contact you soon to discuss your dream interior</p>
-      <form
-        action="/api/add"
-        method="POST"
-        id="form"
-        class="consultation-form"
-        novalidate
-      >
-        <div class="form-group">
-          <label for="name" class="block text-gray-700 font-medium">
-            Full Name <span class="text-red-500">*</span>
-          </label>
-          <input
-            id="name"
-            type="text"
-            placeholder="John Carter"
-            required
-            class="w-full px-5 py-3 border-2 rounded-md outline-none focus:border-orange-500"
-            name="firstname"
-          />
-          <div class="empty-feedback text-red-400 text-sm mt-1">
-            Please provide your full name.
+  <div class="max-w-6xl mx-auto">
+    <h2>Schedule Your Personal Consultation</h2>
+    <div class="cta-container grid items-center gap-1 grid-cols-1 md:grid-cols-2">
+      <div class="image-container">
+        <img
+          src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&auto=format&fit=crop&q=80"
+          alt="Modern living room interior"
+          class="cta-image"
+          draggable="false"
+        />
+      </div>
+      <div class="form-container p-8 md:py-0 md:pr-0">
+        <p class="subtitle">
+          Leave your details and we'll contact you soon to discuss your dream
+          interior
+        </p>
+        <form
+          action="/api/add"
+          method="POST"
+          id="form"
+          class="consultation-form"
+          novalidate>
+          <div class="form-group">
+            <label for="name" class="block text-gray-700 font-medium">
+              Full Name <span class="text-red-500">*</span>
+            </label>
+            <input
+              id="name"
+              type="text"
+              placeholder="John Carter"
+              required
+              class="w-full px-5 py-3 border-2 rounded-md outline-none focus:border-orange-500"
+              name="firstname"
+            />
+            <div class="empty-feedback text-red-400 text-sm mt-1">
+              Please provide your full name.
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="email" class="block text-gray-700 font-medium">
-            Email Address <span class="text-red-500">*</span>
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="you@mail.com"
-            required
-            class="w-full px-5 py-3 border-2 rounded-md outline-none focus:border-orange-500"
-            name="emailAddress"
-          />
-          <div class="empty-feedback text-red-400 text-sm mt-1">
-            Please provide a valid email address.
+          <div class="form-group">
+            <label for="email" class="block text-gray-700 font-medium">
+              Email Address <span class="text-red-500">*</span>
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="you@mail.com"
+              required
+              class="w-full px-5 py-3 border-2 rounded-md outline-none focus:border-orange-500"
+              name="emailAddress"
+            />
+            <div class="empty-feedback text-red-400 text-sm mt-1">
+              Please provide a valid email address.
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="phone" class="block text-gray-700 font-medium">
-            Contact Number <span class="text-red-500">*</span>
-          </label>
-          <input
-            id="phone"
-            type="tel"
-            placeholder="+91 9876543210"
-            required
-            class="w-full px-5 py-3 border-2 rounded-md outline-none focus:border-orange-500"
-            name="phone"
-          />
-          <div class="empty-feedback text-red-400 text-sm mt-1">
-            Please provide your contact number.
+          <div class="form-group">
+            <label for="phone" class="block text-gray-700 font-medium">
+              Contact Number <span class="text-red-500">*</span>
+            </label>
+            <input
+              id="phone"
+              type="tel"
+              placeholder="+91 9876543210"
+              required
+              class="w-full px-5 py-3 border-2 rounded-md outline-none focus:border-orange-500"
+              name="phone"
+            />
+            <div class="empty-feedback text-red-400 text-sm mt-1">
+              Please provide your contact number.
+            </div>
           </div>
-        </div>
-        <button type="submit" class="submit-button">
-          Request Consultation
-        </button>
-        <div id="result" class="mt-3 text-center"></div>
-      </form>
+          <button type="submit" class="submit-button">
+            Request Consultation
+          </button>
+          <div id="result" class="mt-3 text-center"></div>
+        </form>
+      </div>
     </div>
   </div>
-  <SuccessPopup message="Thank you! Your consultation request has been received. We'll contact you within 24 hours." />
+  <SuccessPopup
+    message="Thank you! Your consultation request has been received. We'll contact you within 24 hours."
+  />
 </section>
 
 <style>
@@ -84,18 +92,9 @@ import SuccessPopup from './SuccessPopup.astro';
     background-color: #faf9f8;
   }
 
-  .cta-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
   .image-container {
     position: relative;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4/4;
     overflow: hidden;
   }
 
@@ -104,10 +103,6 @@ import SuccessPopup from './SuccessPopup.astro';
     height: 100%;
     object-fit: cover;
     border-radius: 12px;
-  }
-
-  .form-container {
-    padding: 2rem;
   }
 
   h2 {
@@ -172,10 +167,6 @@ import SuccessPopup from './SuccessPopup.astro';
   @media (max-width: 768px) {
     .cta-container {
       grid-template-columns: 1fr;
-    }
-
-    .form-container {
-      padding: 1rem 0;
     }
 
     h2 {

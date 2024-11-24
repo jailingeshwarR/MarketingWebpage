@@ -1,6 +1,7 @@
 ---
 import Marquee from "./ui/Marquee/marquee.astro";
 import NumberTicker from "./ui/number-ticker";
+import Plus from "./ui/icons/plus";
 
 interface Stat {
   name: string;
@@ -31,27 +32,12 @@ const stats: Stat[] = [
             <NumberTicker
               value={item.number}
               className="text-3xl md:text-5xl font-bold"
-              client:only>
+              client:only="react">
               {/* <span class="inline-block tabular-nums text-black dark:text-white tracking-wider text-3xl font-bold">
                 {item.number}
               </span> */}
             </NumberTicker>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-plus text-3xl font-black">
-              <>
-                <path d="M5 12h14" />
-                <path d="M12 5v14" />
-              </>
-            </svg>
+            <Plus />
           </div>
           <h3 class="scroll-m-20 tracking-tight text-center text-xl font-normal">
             {item.name}
