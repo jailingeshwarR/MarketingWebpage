@@ -5,6 +5,7 @@ import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
 import { ViewTransitions } from "astro:transitions";
+import "../styles/main.css";
 
 export interface Props {
   title: string;
@@ -51,11 +52,11 @@ const defaultMeta: Partial<SeoProps> = {
   </head>
   <body>
     <Navbar />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
     <style is:global>
-      /* Improve Page speed */
-      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
       img {
         content-visibility: auto;
       }

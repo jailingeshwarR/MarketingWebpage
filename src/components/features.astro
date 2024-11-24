@@ -45,17 +45,14 @@ const features = [
       "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000",
   },
 ];
-
 ---
 
 <div class="py-16 max-w-screen-xl mx-auto px-5">
-  <h2 class="text-4xl lg:text-5xl font-bold lg:leading-[58px] mb-6 max-w-4xl">
-    Everything You Need to Design Your Dream Home
+  <h2
+    class="text-4xl lg:text-5xl font-bold lg:leading-[58px] max-w-4xl text-center mx-auto mb-8 md:mb-[52px]">
+    Everything You Need to Design Your
+    <span class="text-gradient-primary"> Dream Home </span>
   </h2>
-  <p class="text-lg text-slate-600 mb-12">
-    Jayalakshmi interiors combines innovative solutions with personalized
-    service to create spaces that inspire and function beautifully.
-  </p>
   <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
     {features.map((service) => <ServiceCard {...service} />)}
   </div>

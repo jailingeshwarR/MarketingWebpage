@@ -25,7 +25,7 @@ const images = await getAlbumImages(album.data.title);
 ---
 
 <Layout title="Gallery">
-  <main class="container mx-auto mt-10 px-4 pt-10 md:pt-20 pb-10">
+  <section class="container mx-auto mt-10 px-4 pt-10 md:pt-20 pb-10">
     <div class="text-center">
       <h1 class="text-5xl font-bold">{album.data.title}</h1>
       <p class="text-xl my-4">{album.data.description}</p>
@@ -48,5 +48,5 @@ const images = await getAlbumImages(album.data.title);
         <a href="/gallery/" class="hover:underline">View other albums</a>
       </p>
     </div>
-  </main>
+  </section>
 </Layout>
