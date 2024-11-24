@@ -1,15 +1,10 @@
 ---
-import { Picture } from "astro:assets";
-import heroImage from "assets/hero.png";
 import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon/components";
-import Form from "./ui/form.astro";
-import bgimage from "../assets/MarketingsiteBGImage.jpeg";
-// console.log({ bgimage });
 ---
 
 <main
-  class="place-items-center pt-16 pb-8 md:pt-28 md:pb-12 gap-8 bg-gradient-secondary bg-no-repeat text-black px-5 min-h-screen flex bg-cover bg-center"
+  class="place-items-center pt-16 pb-8 md:pt-28 md:pb-12 gap-8 bg-no-repeat text-black px-5 min-h-screen flex bg-cover bg-center"
   style={"background-image: url('/background-image.webp')"}>
   <div
     class="flex gap-6 flex-col items-center text-center max-w-5xl mx-auto h-full justify-center">
@@ -25,15 +20,18 @@ import bgimage from "../assets/MarketingsiteBGImage.jpeg";
     <div class="flex flex-col sm:flex-row gap-3 mt-6">
       <Link
         href="/gallery"
-        class="flex gap-1 items-center rounded-full justify-center bg-orange-600 text-black px-6 py-3 font-semibold shadow-lg hover:bg-orange-500/90 hover:border-2 transition-colors duration-200"
+        class="flex gap-1 items-center rounded-full justify-center bg-[#9A8C7E] text-white px-6 py-3 font-semibold shadow-lg hover:bg-[#8A7C6E] border-2 border-transparent hover:border-white/20 transition-all duration-200"
         rel="noopener">
         <span>Explore Our Work</span>
         <Icon class="w-6 h-6" name="bx:caret-right" />
       </Link>
     </div>
   </div>
-
-  <!-- <Form /> -->
 </main>
 
-<style></style>
+<style>
+  /* .bg-gradient-secondary {
+    background-color: rgba(0, 0, 0, 0.65);
+    background-blend-mode: multiply;
+  } */
+</style>
