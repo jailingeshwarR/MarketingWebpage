@@ -1,22 +1,150 @@
 ---
-import Link from "./ui/link.astro";
 ---
 
-<div
-  class="bg-black p-8 md:p-20 mx-auto max-w-5xl my-8 md:my-12 lg:my-16 rounded-lg flex flex-col items-center text-center">
-  <h2 class="text-white text-4xl md:text-5xl tracking-tight">
-    Start Designing the Home You’ve Always Dreamed Of.
-  </h2>
-  <h3 class="text-slate-300 mt-4 text-lg md:text-xl">
-    Explore our tailored interior solutions that turn your ideas into a space
-    you’ll love.
-  </h3>
-  <div class="flex mt-5">
-    <Link
-      href="/contact"
-      style="inverted"
-      class="bg-orange-600 text-white px-6 py-3 rounded-md transition duration-200">
-      <h4>Book Your Consultation Today</h4>
-    </Link>
+<section class="cta-section">
+  <div class="cta-container">
+    <div class="image-container">
+      <img 
+        src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&auto=format&fit=crop&q=80" 
+        alt="Modern living room interior" 
+        class="cta-image"
+      />
+    </div>
+    <div class="form-container">
+      <h2>Schedule Your Personal Consultation</h2>
+      <p class="subtitle">Leave your details and we'll contact you soon to discuss your dream interior</p>
+      
+      <form class="consultation-form">
+        <div class="form-group">
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            placeholder="Your Name"
+            required
+          />
+        </div>
+        
+        <div class="form-group">
+          <input 
+            type="tel" 
+            id="phone" 
+            name="phone" 
+            placeholder="Your Phone Number"
+            required
+          />
+        </div>
+
+        <p class="privacy-notice">
+          By submitting this form, you agree to our privacy policy
+        </p>
+
+        <button type="submit" class="submit-button">
+          Request Consultation
+        </button>
+      </form>
+    </div>
   </div>
-</div>
+</section>
+
+<style>
+  .cta-section {
+    padding: 4rem 1rem;
+    background-color: #faf9f8;
+  }
+
+  .cta-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .image-container {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+
+  .cta-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .form-container {
+    padding: 2rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color: #2d2d2d;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .consultation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background: white;
+  }
+
+  .form-group input:focus {
+    outline: none;
+    border-color: #9a8c7e;
+  }
+
+  .privacy-notice {
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  .submit-button {
+    background-color: #2d2d2d;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-button:hover {
+    background-color: #404040;
+  }
+
+  @media (max-width: 768px) {
+    .cta-container {
+      grid-template-columns: 1fr;
+    }
+
+    .form-container {
+      padding: 1rem 0;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
