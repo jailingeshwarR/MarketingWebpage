@@ -34,9 +34,43 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Update or create form data
-    const formUpdate = {};
-    formUpdate[`${formType}Form`] = formContent;
+    // Define a proper type for formUpdate
+    type FormUpdate = {
+      referForm?: Array<Record<string, any>>;
+      ctaForm?: Record<string, any>;
+      contactForm?: Record<string, any>;
+    };
+
+    const formUpdate: FormUpdate = {};
+
+    if (formType === "refer") {
+      // Handle Refer form logic
+      const { friendName, friendEmail, friendPhone, ...rest } = formContent;
+
+      if (!friendName || !friendEmail || !friendPhone) {
+        return new Response(
+          JSON.stringify({
+            error: "Friend details are required for refer form.",
+          }),
+          { status: 400, headers: { "Content-Type": "application/json" } }
+        );
+      }
+
+      // Prepare the new referral entry
+      const newReferral = { friendName, friendEmail, friendPhone, ...rest };
+
+      const existingData = await db.formData.findUnique({
+        where: { email: emailAddress },
+      });
+
+      const existingReferForm = existingData?.referForm || [];
+      const updatedReferForm = [...existingReferForm, newReferral];
+
+      formUpdate.referForm = updatedReferForm;
+    } else {
+      // General form (CTA or Contact form)
+      formUpdate[`${formType}Form`] = formContent;
+    }
 
     const formData = await db.formData.upsert({
       where: { email: emailAddress },
