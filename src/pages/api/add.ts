@@ -23,14 +23,32 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const formData = await db.formData.create({
-      data: {
-        formData: formDataObject,
-        email: formDataObject.emailAddress,
+    const { emailAddress, formType, ...formContent } = formDataObject;
+
+    if (!emailAddress || !formType) {
+      return new Response(
+        JSON.stringify({
+          error: "Email and form type are required.",
+        }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    // Update or create form data
+    const formUpdate = {};
+    formUpdate[`${formType}Form`] = formContent;
+
+    const formData = await db.formData.upsert({
+      where: { email: emailAddress },
+      update: {
+        ...formUpdate,
+        updatedAt: new Date(),
+      },
+      create: {
+        email: emailAddress,
+        ...formUpdate,
       },
     });
-
-    const previousPageLocation = request.headers.get("Referer");
 
     return new Response(
       JSON.stringify({
@@ -41,7 +59,6 @@ export const POST: APIRoute = async ({ request }) => {
         status: 200,
         headers: {
           "Content-Type": "application/json",
-          "Location": previousPageLocation ?? "/",
         },
       }
     );
