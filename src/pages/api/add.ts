@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import db from "../../../prisma/db";
+import nodemailer from "nodemailer";
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -34,7 +35,6 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Define a proper type for formUpdate
     type FormUpdate = {
       referForm?: Array<Record<string, any>>;
       ctaForm?: Record<string, any>;
@@ -44,7 +44,6 @@ export const POST: APIRoute = async ({ request }) => {
     const formUpdate: FormUpdate = {};
 
     if (formType === "refer") {
-      // Handle Refer form logic
       const { friendName, friendEmail, friendPhone, ...rest } = formContent;
 
       if (!friendName || !friendEmail || !friendPhone) {
@@ -56,7 +55,6 @@ export const POST: APIRoute = async ({ request }) => {
         );
       }
 
-      // Prepare the new referral entry
       const newReferral = { friendName, friendEmail, friendPhone, ...rest };
 
       const existingData = await db.formData.findUnique({
@@ -68,7 +66,6 @@ export const POST: APIRoute = async ({ request }) => {
 
       formUpdate.referForm = updatedReferForm;
     } else {
-      // General form (CTA or Contact form)
       formUpdate[`${formType}Form`] = formContent;
     }
 
@@ -83,6 +80,73 @@ export const POST: APIRoute = async ({ request }) => {
         ...formUpdate,
       },
     });
+
+    const generateHtmlTemplate = (formType: string, formData: any) => `
+      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+        <h2 style="color: #004085; border-bottom: 2px solid #ddd; padding-bottom: 8px;">
+          New Form Submission (${formType})
+        </h2>
+        <p style="font-size: 14px; color: #555;">
+          Below are the details of the form submission:
+        </p>
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+  <thead>
+    <tr style="background-color: #f7f7f7; text-align: left; border-bottom: 1px solid #ddd;">
+      <th style="padding: 8px;">Field</th>
+      <th style="padding: 8px;">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    ${Object.entries(formData)
+        .map(
+          ([key, value]) => `
+      <tr>
+        <td style="padding: 8px; border-bottom: 1px solid #eee;">${key}</td>
+        <td style="padding: 8px; border-bottom: 1px solid #eee;">
+          ${Array.isArray(value)
+              ? `<ul>${value
+                .map((item) => `<li>${JSON.stringify(item, null, 2)}</li>`)
+                .join("")}</ul>`
+              : value && typeof value === "object"
+                ? `<ul>${Object.entries(value)
+                  .map(
+                    ([k, v]) => `<li><strong>${k}:</strong> ${v ?? "N/A"}</li>`
+                  )
+                  .join("")}</ul>`
+                : value ?? "N/A"
+            }
+        </td>
+      </tr>
+    `
+        )
+        .join("")}
+  </tbody>
+</table>
+
+        <p style="text-align: center; color: #777; font-size: 12px;">
+          Sent by <strong>Jayalakshmi Wood Corner</strong>
+        </p>
+      </div>
+    `;
+
+    // Email transport
+    const transporter = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: process.env.FROM_EMAIL,
+        pass: process.env.GOOGLE_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: `"Jayalakshmi Wood Corner" <${process.env.FROM_EMAIL}>`,
+      to: process.env.TOEMAIL,
+      subject: `New Form Submission (${formType})`,
+      text: `Form submission details:\n\n${JSON.stringify(formData, null, 2)}`, // Fallback text
+      html: generateHtmlTemplate(formType, formData), // HTML content
+    };
+
+    await transporter.sendMail(mailOptions);
 
     return new Response(
       JSON.stringify({
