@@ -1,13 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36">
-  <path fill="#000" d="M22.25 4h-8.5a1 1 0 0 0-.96.73l-5.54 19.4a.5.5 0 0 0 .62.62l5.05-1.44a2 2 0 0 0 1.38-1.4l3.22-11.66a.5.5 0 0 1 .96 0l3.22 11.67a2 2 0 0 0 1.38 1.39l5.05 1.44a.5.5 0 0 0 .62-.62l-5.54-19.4a1 1 0 0 0-.96-.73Z"/>
-  <path fill="url(#gradient)" d="M18 28a7.63 7.63 0 0 1-5-2c-1.4 2.1-.35 4.35.6 5.55.14.17.41.07.47-.15.44-1.8 2.93-1.22 2.93.6 0 2.28.87 3.4 1.72 3.81.34.16.59-.2.49-.56-.31-1.05-.29-2.46 1.29-3.25 3-1.5 3.17-4.83 2.5-6-.67.67-2.6 2-5 2Z"/>
-  <defs>
-    <linearGradient id="gradient" x1="16" x2="16" y1="32" y2="24" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#000"/>
-      <stop offset="1" stop-color="#000" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-	<style>
-    @media (prefers-color-scheme:dark){:root{filter:invert(100%)}}
-  </style>
+<svg width="159" height="240" viewBox="0 0 159 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M158.5 0L87 39.5V56.4124V130.912C79 133.412 79 132.912 71.5 132.912V90.4124L0 122.912V170.912C11 267.412 151 255.912 158.5 170.912V0Z" fill="url(#paint0_linear_30_158)"/>
+<path d="M77.9136 131.876L50.0166 156.459C49.3703 157.029 49 157.848 49 158.71V180C49 181.657 50.3431 183 52 183H78H104C105.657 183 107 181.657 107 180V158.585C107 157.797 106.69 157.04 106.137 156.479L82.0338 132.021C80.9164 130.887 79.1079 130.823 77.9136 131.876Z" stroke="#F5F5F5" stroke-width="20"/>
+<defs>
+<linearGradient id="paint0_linear_30_158" x1="133.242" y1="20" x2="38.5" y2="169.5" gradientUnits="userSpaceOnUse">
+<stop offset="0.130088" stop-color="#F74800"/>
+<stop offset="1" stop-color="#FD8000"/>
+</linearGradient>
+</defs>
 </svg>
