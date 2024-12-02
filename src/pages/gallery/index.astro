@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 const albums = await getCollection("albums");
+export const prerender = true;
 ---
 
 <Layout title="Gallery">

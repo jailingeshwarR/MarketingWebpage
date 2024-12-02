@@ -13,7 +13,7 @@ interface ServiceCardProps {
 
 export function ServiceCard({ title, description, imageUrl, className,url }: ServiceCardProps) {
     return (
-        <a href={url || "#"} className="no-underline">
+        <a href={url || "#"} className="no-underline" aria-label={title}>
         <Card className={cn(
             "group relative overflow-hidden border-0 bg-black/50 backdrop-blur-xl transition-all duration-500 hover:scale-[1.02]",
             className

@@ -8,6 +8,7 @@ import Container from "@components/container.astro";
 const publishedTeamMembers = await getCollection("team", ({ data }) => {
   return !data.draft && data.publishDate < new Date();
 });
+export const prerender = true;
 ---
 
 <Layout title="About">

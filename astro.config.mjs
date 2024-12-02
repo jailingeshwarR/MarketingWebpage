@@ -9,15 +9,25 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  site: import.meta.env.PUBLIC_URL,
-  integrations: [tailwind(), mdx(), sitemap(), icon(),react()],
+  site: 'https://www.jayalakshmiinteriors.com',
+  integrations: [
+    tailwind(),
+    sitemap({
+      changefreq: 'weekly',
+      lastmod: new Date(),
+      priority: 0.85,
+      serialize: (item) => {
+        if (item.url.at(-1) === '/') {
+          item.url = item.url.slice(0, -1);
+        }
+        return item;
+      }
+    }),
+    mdx(),
+    icon(),
+    react()],
   output: "server",
-  adapter: vercel({
-    // imageService: true,
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
+  adapter: vercel(),
   vite: {
     plugins: [basicSsl()],
     server: {
